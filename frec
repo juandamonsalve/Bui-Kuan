@@ -1,0 +1,47 @@
+from machine import Pin, Timer, SoftI2C
+import time
+import freccar
+from freccar import Respiraciones
+
+import ssd1306
+
+i2c = SoftI2C(scl=Pin(22), sda=Pin(21), freq=100000)
+
+oled_width = 128
+oled_height = 64
+oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
+
+
+def reset_respirations(timer):
+    global respiraciones_obj
+    res= respiraciones_obj.respiraciones / 2  # Guarda la mitad de las respiraciones en una variable
+    print("Respiraciones en el último minuto: ", res)
+    if res< 10:
+        oled.fill(0)
+        oled.text(str(int(res)), 15, 0)
+        oled.text('Bradipnea', 0, 10)
+        oled.text('Acudir a:', 0, 20)
+        oled.text('Atencion Medica', 0, 30)
+        oled.show()
+        time.sleep_ms(1000)
+    elif res > 30:
+        oled.fill(0)
+        oled.text(str(int(res)), 15, 0)
+        oled.text('Taquipnea', 0, 10)
+        oled.text('Acudir a:', 0, 20)
+        oled.text('Atencion Medica', 0, 30)
+        oled.show()
+        time.sleep_ms(1000)
+    else:
+        oled.fill(0)
+        oled.text(str(int(res)), 15, 0)
+        oled.show()
+        time.sleep_ms(1000)
+    respiraciones_obj.respiraciones = 0  # Reset the respirations count
+
+# Configura el temporizador para resetear el contador cada minuto
+timer = Timer(0)
+timer.init(period=60000, mode=Timer.PERIODIC, callback=reset_respirations)  # Set the period to 60000 milliseconds (1 minute)
+
+respiraciones_obj = Respiraciones()
+respiraciones_obj.muestra()
