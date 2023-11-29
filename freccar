@@ -1,0 +1,18 @@
+from machine import Pin
+import time
+
+class Respiraciones():
+    def __init__(self):
+        self.respiraciones = 0
+
+    def muestra(self):
+        last_state = 0  # Initialize last_state
+        sensor = Pin(14, Pin.IN)
+        print("Sensores conectados, iniciando.")
+        while True:
+            current_state = sensor.value()
+            if current_state != last_state:
+                if current_state == 1:
+                    self.respiraciones += 1  # Use self.respiraciones instead of respirations
+                last_state = current_state
+            time.sleep(0.03)  # espera un poco para la siguiente lectura
