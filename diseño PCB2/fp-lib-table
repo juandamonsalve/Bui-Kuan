@@ -1,0 +1,8 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "esp32dev")(type "KiCad")(uri "C:/Users/sadas/Downloads/ESP32-DEVKIT-V1")(options "")(descr ""))
+  (lib (name "pantalla")(type "KiCad")(uri "${KIPRJMOD}/pantalla.pretty")(options "")(descr ""))
+  (lib (name "Temperatura")(type "KiCad")(uri "${KIPRJMOD}/Temperatura.pretty")(options "")(descr ""))
+  (lib (name "sonido")(type "KiCad")(uri "${KIPRJMOD}/sonido.pretty")(options "")(descr ""))
+  (lib (name "max30102")(type "KiCad")(uri "${KIPRJMOD}/max30102.pretty")(options "")(descr ""))
+)

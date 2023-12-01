@@ -1,0 +1,8 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ESP32-DEVKIT-V1")(type "KiCad")(uri "C:/Users/sadas/Downloads/ESP32-DEVKIT-V1/ESP32-DEVKIT-V1.kicad_sym")(options "")(descr ""))
+  (lib (name "pantalla")(type "KiCad")(uri "${KIPRJMOD}/pantalla.kicad_sym")(options "")(descr ""))
+  (lib (name "temperatura")(type "KiCad")(uri "${KIPRJMOD}/temperatura.kicad_sym")(options "")(descr ""))
+  (lib (name "sonido")(type "KiCad")(uri "${KIPRJMOD}/sonido.kicad_sym")(options "")(descr ""))
+  (lib (name "max30102")(type "KiCad")(uri "${KIPRJMOD}/max30102.kicad_sym")(options "")(descr ""))
+)
